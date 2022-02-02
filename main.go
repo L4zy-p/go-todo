@@ -2,6 +2,7 @@ package main
 
 import (
 	"go-todo/controllers"
+	"go-todo/models"
 
 	"github.com/gin-gonic/gin"
 )
@@ -9,7 +10,9 @@ import (
 func main() {
 	r := gin.Default()
 
-	r.GET("/", controllers.GetTodo)
+	models.ConnectDatabase()
+
+	r.GET("/", controllers.GetAllLists)
 
 	r.Run(":3001")
 }

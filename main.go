@@ -12,7 +12,9 @@ func main() {
 
 	models.ConnectDatabase()
 
-	r.GET("/", controllers.GetAllLists)
+	r.GET("/", controllers.CheckStatus)
+	r.GET("/todo", controllers.GetAllLists)
+	r.POST("/todo", controllers.CreateTodoList)
 
 	r.Run(":3001")
 }
